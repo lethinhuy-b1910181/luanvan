@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\Backend\TeamController;
+use Illuminate\Support\Facades\Artisan;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -27,6 +29,9 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
+
+
 //Admin Group Middleware
 Route::middleware(['auth', 'roles:admin'])->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name('admin.dashboard');
@@ -39,4 +44,18 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
 
 }); //End Admin Group Middleware
 
-Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
+
+//Admin Group Middleware
+Route::middleware(['auth', 'roles:admin'])->group(function(){
+    /// Team All Route
+    Route::controller(TeamController::class)->group(function(){
+        Route::get('/all/team', 'AllTeam')->name('all.team');
+        Route::get('/add/team', 'AddTeam')->name('add.team');
+        Route::post('/team/store', 'StoreTeam')->name('team.store');
+        Route::get('/edit/team/{id}', 'EditTeam')->name('edit.team');
+        Route::post('/team/update', 'UpdateTeam')->name('team.update');
+        Route::get('/delete/team/{id}', 'DeleteTeam')->name('delete.team');
+   
+    });
+
+}); //End Admin Group Middleware
