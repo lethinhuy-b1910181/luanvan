@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Backend\TeamController;
+use App\Http\Controllers\Backend\RoomTypeController;
+use App\Http\Controllers\Backend\RoomController;
 use Illuminate\Support\Facades\Artisan;
 
 // Route::get('/', function () {
@@ -63,6 +65,22 @@ Route::middleware(['auth', 'roles:admin'])->group(function(){
         Route::get('/book/area', 'BookArea')->name('book.area');
         Route::post('/book/area/update', 'BookAreaUpdate')->name('book.area.update');
        
+    });
+
+    /// Room Type All Route
+    Route::controller(RoomTypeController::class)->group(function(){
+        Route::get('/room/type/list', 'RoomTypeList')->name('room.type.list');
+        Route::get('/add/room/type', 'AddRoomType')->name('add.room.type');
+        Route::post('/room/type/store', 'RoomTypeStore')->name('room.type.store');
+       
+    });
+
+    /// Room All Route
+    Route::controller(RoomController::class)->group(function(){
+        Route::get('/edit/room/{id}', 'EditRoom')->name('edit.room');
+        Route::post('/update/room/{id}', 'UpdateRoom')->name('update.room');
+        Route::get('/multi/image/delete/{id}', 'MultiImageDelete')->name('multi.image.delete');
+        
     });
 
 }); //End Admin Group Middleware
