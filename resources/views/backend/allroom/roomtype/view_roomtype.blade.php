@@ -3,8 +3,6 @@
 @section('admin')
 
 <div class="page-content">
-    
-
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
         <div class="ps-3">
@@ -19,7 +17,6 @@
         <div class="ms-auto">
             <div class="btn-group" style="margin-right: 30px">
                 <a href="{{ route('add.room.type') }}"  class="card-title btn btn-primary float-right" ><i class="lni lni-plus">Add New</i></a>
-               
             </div>
         </div>
     </div>
@@ -52,18 +49,15 @@
                                         <a href="{{ route('edit.room', $roo->id) }}" class="btn btn-warning px-3 radius-30">Edit</a>
                                         <a href="{{ route('delete.room', $roo->id) }}" id="delete" class="btn btn-danger px-3 radius-30">Delete</a>
                                     @endforeach
-                                      </td>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
-                    
                 </table>
             </div>
         </div>
     </div>
-    
     <hr/>
-    
 </div>
 
 @endsection

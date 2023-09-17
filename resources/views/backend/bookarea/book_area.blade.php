@@ -20,7 +20,6 @@
     <div class="container">
         <div class="main-body">
             <div class="row" style="justify-content: center">
-                
                 <div class="col-lg-9 " >
                     <div class="card">
                         <form  action="{{ route('book.area.update') }}" method="post" enctype="multipart/form-data">

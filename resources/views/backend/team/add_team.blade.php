@@ -95,7 +95,6 @@
     });
 </script>
 
-
 <script type="text/javascript">
     $(document).ready(function (){
         $('#myForm').validate({
@@ -127,8 +126,6 @@
                 image: {
                     required : 'Please Select Image',
                 }, 
-                 
-
             },
             errorElement : 'span', 
             errorPlacement: function (error,element) {

@@ -20,9 +20,9 @@
     <div class="container">
         <div class="main-body">
             <div class="row" style="justify-content: center">
-                
                 <div class="col-lg-9 " >
                     <div class="card">
+                {{-- =================== Start Form Add New Room Type ======================= --}}
                         <form id="myForm" action="{{ route('room.type.store') }}" method="post" >
                             @csrf
                             <div class="card-body">
@@ -42,14 +42,14 @@
                                 </div>
                             </div>
                         </form>
+                {{-- =================== End Form Add New Room Type ======================= --}}
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+{{-- =================== Start Script Xử lí hiển thị chọn nhiều hình ảnh ======================= --}}
 <script type="text/javascript">
     $(document).ready(function(){
         $('#image').change(function(e){
@@ -61,8 +61,9 @@
         });
     });
 </script>
+{{-- =================== End Script Xử lí hiển thị chọn nhiều hình ảnh ======================= --}}
 
-
+{{-- =================== Start Script Xử lí lỗi bắt buộc nhập ======================= --}}
 <script type="text/javascript">
     $(document).ready(function (){
         $('#myForm').validate({
@@ -70,16 +71,11 @@
                 name: {
                     required : true,
                 },
-                
-                
             },
             messages :{
                 name: {
                     required : 'Please Enter Team Name',
                 },
-                
-                 
-
             },
             errorElement : 'span', 
             errorPlacement: function (error,element) {
@@ -96,4 +92,6 @@
     });
     
 </script>
+{{-- =================== End Script Xử lí lỗi bắt buộc nhập ======================= --}}
+
 @endsection

@@ -23,9 +23,9 @@
                 
                 <div class="col-lg-8 " >
                     <div class="card">
+{{-- Start Form xử lí update Room Number --}}
                         <form action="{{ route('update.roomno', $editRoomNo->id) }}" method="post" >
                             @csrf
-                            
                             <div class="card-body">
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
@@ -35,7 +35,6 @@
                                         <input type="text" name="room_no" class="form-control" value="{{ $editRoomNo->room_no }}" />
                                     </div>
                                 </div>
-
                                 <div class="row mb-3">
                                     <div class="col-sm-3">
                                         <h6 class="mb-0">Status</h6>
@@ -48,7 +47,6 @@
                                         </select>
                                     </div>
                                 </div>
-                                
                                 <div class="row">
                                     <div class="col-sm-3"></div>
                                     <div class="col-sm-9 text-secondary">
@@ -57,8 +55,8 @@
                                 </div>
                             </div>
                         </form>
+{{-- End Form xử lí update Room Number --}}
                     </div>
-
                 </div>
             </div>
         </div>

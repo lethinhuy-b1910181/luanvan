@@ -27,7 +27,6 @@
                                     </div>
                                 </a>
                             </li>
-                            
                         </ul>
                         <div class="tab-content py-3">
                             {{-- Start primaryhome --}}
@@ -36,6 +35,7 @@
                                     <div class="card">
                                         <div class="card-body p-4">
                                             <h5 class="mb-4">Update Room</h5>
+                    {{-- =================== Start Form xử lí update Room ======================= --}}
                                             <form class="row g-3" action="{{ route('update.room',$editData->id) }}" method="post" enctype="multipart/form-data">
                                                 @csrf
                                                 <div class="col-md-4">
@@ -200,18 +200,19 @@
                                                     </div>
                                                 </div>
                                             </form>
+                    {{-- =================== End Form xử lí update Room ======================= --}}
                                         </div>
                                     </div>
                                 </div>
                             </div> 
                             {{-- End primaryhome --}}
-
                             {{-- Start Primaryprofile --}}
                             <div class="tab-pane fade" id="primaryprofile" role="tabpanel">
                                 <div class="card">
                                     <div class="card-body">
                                         <a  class="card-title btn btn-primary float-right" onclick="addRoomNo()" id="addRoomNo"><i class="lni lni-plus">Add New</i></a>
                                         <div class="roomnoHide" id="roomnoHide">
+                    {{-- =================== Start Form xử lí Thêm  Room Number ======================= --}}
                                             <form action="{{ route('store.room.no', $editData->id) }}" method="post">
                                                 @csrf
                                                 <input type="hidden" name="room_type_id" value="{{ $editData->roomtype_id }}">
@@ -234,7 +235,9 @@
                                                     </div>
                                                 </div>
                                             </form>
+                    {{-- =================== End Form xử lí Thêm  Room Number ======================= --}}
                                         </div>
+                    {{-- =================== Danh sách Room Number hiện có ======================= --}}
                                         <table class="table mb-0 table-striped" id="roomview">
                                             <thead>
                                                 <tr>
@@ -258,6 +261,7 @@
                                                 
                                             </tbody>
                                         </table>
+                    {{-- =================== End tab Table ======================= --}}
                                     </div>
                                 </div>
                             </div>
@@ -312,7 +316,7 @@
         }
      });
     });
- </script>
+</script>
 <!--------=== End Show MultiImage ========------->
 
  <!--========== Start of add Basic Plan Facilities ==============-->
@@ -348,7 +352,7 @@
           </div>
        </div>
     </div>
- </div>
+</div>
  <script type="text/javascript">
 
     $(document).ready(function(){
@@ -366,7 +370,7 @@
 
  </script>
  <!--========== End of Basic Plan Facilities ==============-->
- 
+
  <!--========== Start Room Number Add ==============-->
     <script>
 
